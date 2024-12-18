@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Fact Generator</title>
     <style>
+        /* Basic styling for the body to center content and set background */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -15,31 +16,35 @@
             margin: 0;
         }
 
+        /* Styling for the main container */
         .container {
             text-align: center;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeIn 1s ease-in-out; /* Animation for fading in */
         }
 
+        /* Styling for the fact display box */
         .fact-box {
             margin: 20px 0;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
             background-color: #fafafa;
-            animation: slideIn 0.5s ease-in-out;
+            animation: slideIn 0.5s ease-in-out; /* Animation for sliding in */
         }
 
+        /* Styling for the fact image */
         .fact-image {
             width: 100px;
             height: auto;
             margin-top: 10px;
-            animation: zoomIn 0.5s ease-in-out;
+            animation: zoomIn 0.5s ease-in-out; /* Animation for zooming in */
         }
 
+        /* Styling for the button */
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -48,28 +53,33 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            animation: bounce 1s infinite;
+            animation: bounce 1s infinite; /* Animation for bouncing */
         }
 
+        /* Hover effect for the button */
         button:hover {
             background-color: #0056b3;
         }
 
+        /* Keyframes for fade-in animation */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
+        /* Keyframes for slide-in animation */
         @keyframes slideIn {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
+        /* Keyframes for zoom-in animation */
         @keyframes zoomIn {
             from { transform: scale(0.8); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
 
+        /* Keyframes for bounce animation */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
             40% { transform: translateY(-10px); }
@@ -80,63 +90,68 @@
 <body>
     <div class="container">
         <h1>Fun Fact Generator</h1>
+        <!-- Div to display the fun fact -->
         <div id="fact" class="fact-box">
             Click the button to see a fun fact!
         </div>
+        <!-- Image element to display the fact image -->
         <img id="factImage" class="fact-image" src="" alt="Fun Fact Image" style="display: none;">
+        <!-- Button to generate a new fun fact -->
         <button id="generateFactButton">Generate Fun Fact</button>
     </div>
     <script>
+        // Array of fun facts with associated images
         const facts = [
             {
                 text: "Honey never spoils.",
-                image: "https://example.com/honey.jpg"
+                image: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Honey_%28white_background%29.jpg"
             },
             {
                 text: "A day on Venus is longer than a year on Venus.",
-                image: "https://example.com/venus.jpg"
+                image: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg"
             },
             {
                 text: "Bananas are berries, but strawberries aren't.",
-                image: "https://example.com/bananas.jpg"
+                image: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana-Single.jpg"
             },
             {
                 text: "There are more stars in the universe than grains of sand on Earth.",
-                image: "https://example.com/stars.jpg"
+                image: "https://upload.wikimedia.org/wikipedia/commons/e/e1/Starsinthesky.jpg"
             },
             {
                 text: "Octopuses have three hearts.",
-                image: "https://example.com/octopus.jpg"
+                image: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Octopus_vulgaris.jpg"
             },
             {
                 text: "The Eiffel Tower can be 15 cm taller during the summer.",
-                image: "https://example.com/eiffel.jpg"
+                image: "https://upload.wikimedia.org/wikipedia/commons/a/af/Tour_Eiffel_Wikimedia_Commons.jpg"
             },
             {
                 text: "Some cats are allergic to humans.",
-                image: "https://example.com/cats.jpg"
+                image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg"
             },
             {
                 text: "A group of flamingos is called a 'flamboyance'.",
-                image: "https://example.com/flamingos.jpg"
+                image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Flamingo_Laguna_Colorada.jpg"
             },
             {
                 text: "The unicorn is the national animal of Scotland.",
-                image: "https://example.com/unicorn.jpg"
+                image: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Unicorn_in_Scotland.jpg"
             },
             {
                 text: "A jiffy is an actual unit of time.",
-                image: "https://example.com/jiffy.jpg"
+                image: "https://upload.wikimedia.org/wikipedia/commons/3/3a/Clock.jpg"
             }
         ];
 
+        // Event listener for the button to generate a random fact
         document.getElementById('generateFactButton').addEventListener('click', function() {
-            const randomIndex = Math.floor(Math.random() * facts.length);
-            const fact = facts[randomIndex];
-            document.getElementById('fact').textContent = fact.text;
+            const randomIndex = Math.floor(Math.random() * facts.length); // Get a random index
+            const fact = facts[randomIndex]; // Select a random fact
+            document.getElementById('fact').textContent = fact.text; // Display the fact text
             const factImage = document.getElementById('factImage');
-            factImage.src = fact.image;
-            factImage.style.display = 'block';
+            factImage.src = fact.image; // Set the image source
+            factImage.style.display = 'block'; // Display the image
         });
     </script>
 </body>
